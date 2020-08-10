@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-class MyStatefulWidget extends StatefulWidget {
+class Precautions extends StatefulWidget {
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _Precautions createState() => _Precautions();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _Precautions extends State<Precautions> {
 @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        centerTitle: true,
         title: Text('Precauções')
       ),
     );

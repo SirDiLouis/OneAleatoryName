@@ -1,5 +1,9 @@
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'package:final2/screens/contacts.dart';
+import 'package:final2/screens/home.dart';
+import 'package:final2/screens/precautions.dart';
 import 'package:flutter/material.dart';
+import 'package:final2/screens/instructions.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Olha a Máscara!',
+      title: 'Remember the Mask',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -42,84 +46,69 @@ class _MyHomePageState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        title: Text('Página Inicial'),
-        centerTitle: true,
-      ),
       bottomNavigationBar: BubbleBottomBar(
         hasNotch: true,
-        fabLocation: BubbleBottomBarFabLocation.end,
         opacity: .2,
         currentIndex: currentIndex,
         onTap: changePage,
         borderRadius: BorderRadius.vertical(
-            top: Radius.circular(
-                16)),
+            top: Radius.circular(16)
+        ),
         elevation: 8,
         items: <BubbleBottomBarItem>[
           BubbleBottomBarItem(
               backgroundColor: Colors.red,
               icon: Icon(
-                Icons.dashboard,
+                Icons.home,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.dashboard,
+                Icons.home,
                 color: Colors.red,
               ),
-              title: Text("Home")),
+              title: Text("Principal")),
           BubbleBottomBarItem(
               backgroundColor: Colors.deepPurple,
               icon: Icon(
-                Icons.access_time,
+                Icons.assignment,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.access_time,
+                Icons.assignment_turned_in,
                 color: Colors.deepPurple,
               ),
-              title: Text("Logs")),
+              title: Text("Instruções")),
           BubbleBottomBarItem(
               backgroundColor: Colors.indigo,
               icon: Icon(
-                Icons.folder_open,
+                Icons.event_available,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.folder_open,
+                Icons.event_available,
                 color: Colors.indigo,
               ),
-              title: Text("Folders")),
+              title: Text("Precauções")),
           BubbleBottomBarItem(
               backgroundColor: Colors.green,
               icon: Icon(
-                Icons.menu,
+                Icons.contact_phone,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.menu,
+                Icons.contact_phone,
                 color: Colors.green,
               ),
-              title: Text("Menu"))
+              title: Text("Contatos"))
         ],
       ),
-      body: (currentIndex == 0)
-          ? Icon(
-              Icons.dashboard,
-              size: 150.0,
-              color: Colors.red,
-            )
+      body: (currentIndex == 0)      
+          ?  HomePage()
           : (currentIndex == 1)
-          ? Icon(
-              Icons.folder_open,
-              size: 150.0,
-              color: Colors.indigo,
-            )
-          : Icon(
-              Icons.assignment,
-                size: 150.0,
-                color: Colors.deepPurple,
-            ),
+          ?  Instructions()
+          : (currentIndex == 2)
+          ?  Precautions()
+          :  Contacts()
     );
   }
 }

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-class MyStatefulWidget extends StatefulWidget {
+class HomePage extends StatefulWidget {
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _HomePage createState() => _HomePage();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _HomePage extends State<HomePage> {
 @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
+        centerTitle: true,
         title: Text('Página Inicial')
       ),
     );

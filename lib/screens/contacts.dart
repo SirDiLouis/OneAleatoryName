@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
-class MyStatefulWidget extends StatefulWidget {
+class Contacts extends StatefulWidget {
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _Contacts createState() => _Contacts();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _Contacts extends State<Contacts> {
 
 @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Instruçôes')
+        backgroundColor: Colors.green,
+        centerTitle: true,
+        title: Text('Contatos')
       ),
     );
   }

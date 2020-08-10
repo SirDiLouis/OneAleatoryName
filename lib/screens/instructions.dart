@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-class MyStatefulWidget extends StatefulWidget {
+class Instructions extends StatefulWidget {
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _InstructionsState createState() => _InstructionsState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _InstructionsState extends State<Instructions> {
 @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo,
+        centerTitle: true,
         title: Text('Instruções')
       ),
     );
