@@ -11,7 +11,7 @@ class _InstructionsState extends State<Instructions> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.purple[800],
         centerTitle: true,
         title: Text('Instruções')
       ),

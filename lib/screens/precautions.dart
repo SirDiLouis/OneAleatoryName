@@ -11,7 +11,7 @@ class _Precautions extends State<Precautions> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.indigo,
         centerTitle: true,
         title: Text('Precauções')
       ),
