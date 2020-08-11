@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class InfoCard extends StatelessWidget {
+  final double fontSize;
   final String title;
   final int effectedNum;
   final Color iconColor;
   final Function press;
   const InfoCard({
     Key key,
+    this.fontSize,
     this.title,
     this.effectedNum,
     this.iconColor,
@@ -47,7 +49,7 @@ class InfoCard extends StatelessWidget {
                               shape: BoxShape.circle,
                             ),
                             child: SvgPicture.asset(
-                              "assets/icons/running.svg",
+                              "assets/icon/running.svg",
                               height: 12,
                               width: 12,
                               color: iconColor,
@@ -81,9 +83,9 @@ class InfoCard extends StatelessWidget {
                                           ),
                                 ),
                                 TextSpan(
-                                  text: "People",
+                                  text: "Pessoas",
                                   style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 11,
                                     height: 2,
                                   ),
                                 ),
