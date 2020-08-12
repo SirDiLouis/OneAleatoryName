@@ -1,17 +1,23 @@
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
-import 'package:final2/screens/contacts.dart';
 import 'package:final2/screens/home.dart';
 import 'package:final2/screens/precautions.dart';
 import 'package:flutter/material.dart';
 import 'package:final2/screens/instructions.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
+  
+    SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+      ]);
+
     return MaterialApp(
-      title: 'Maskapp',
+      title: 'Corona Stats',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -45,7 +51,7 @@ class _MyHomePageState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.white,
       bottomNavigationBar: BubbleBottomBar(
         hasNotch: true,
         opacity: .2,
@@ -89,26 +95,14 @@ class _MyHomePageState extends State {
                 color: Colors.indigo,
               ),
               title: Text("Precauções")),
-          BubbleBottomBarItem(
-              backgroundColor: Colors.green,
-              icon: Icon(
-                Icons.contact_phone,
-                color: Colors.black,
-              ),
-              activeIcon: Icon(
-                Icons.contact_phone,
-                color: Colors.green,
-              ),
-              title: Text("Contatos"))
+
         ],
       ),
       body: (currentIndex == 0)      
           ?  HomePage()
           : (currentIndex == 1)
           ?  Instructions()
-          : (currentIndex == 2)
-          ?  Precautions()
-          :  Contacts()
-    );
+          :  Precautions()
+      );
+    }
   }
-}

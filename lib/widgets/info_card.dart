@@ -1,7 +1,6 @@
 import 'package:final2/constants.dart';
 import 'package:final2/widgets/line_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class InfoCard extends StatelessWidget {
   final double fontSize;
@@ -48,10 +47,9 @@ class InfoCard extends StatelessWidget {
                               color: iconColor.withOpacity(0.12),
                               shape: BoxShape.circle,
                             ),
-                            child: SvgPicture.asset(
-                              "assets/icon/running.svg",
-                              height: 12,
-                              width: 12,
+                            child: Icon(
+                              Icons.content_paste,
+                              size: 17,
                               color: iconColor,
                             ),
                           ),

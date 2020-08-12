@@ -1,6 +1,5 @@
 import 'package:final2/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Precautions extends StatefulWidget {
 
@@ -15,57 +14,165 @@ class _Precautions extends State<Precautions> {
       appBar: AppBar(
         backgroundColor: Colors.indigo,
         centerTitle: true,
-        title: Text('Prevenções')
+        title: Text('Precauções')
       ),
       body: SingleChildScrollView(
               child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 20),
+              padding: EdgeInsets.only(left: 15, top: 17, right: 15, bottom: 25),
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.indigo.withOpacity(0.03),
+                color: Colors.indigo[700].withOpacity(0.4),
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(50),
-                  bottomRight: Radius.circular(50),
-                ),
+                  bottomRight: Radius.circular(30),
+                  bottomLeft: Radius.circular(30)
+                )
               ),
-            ),
-             SizedBox(height: 20),
+            child:
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(height: 20),
-                    buildPreventation(),
-                    SizedBox(height: 40),
-                    buildHelpCard(context)
+                    buildPreventation(context),
+                    SizedBox(height: 10),
+                    buildHelpCard(context),
+                    SizedBox(height: 10),
+                    buildPreventation2(context),
+                    SizedBox(height: 10),
+                    buildPreventation3(context),
+                    SizedBox(height: 5),
                   ],
                 ),
               ),
-            )
+            ))
           ],
         ),
       ),
     );
   }
 }
-Row buildPreventation() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        PreventitonCard(
-          svgSrc: "assets/icon/hand_wash.svg",
-          title: "Lave as Mãos",
-        ),
-        PreventitonCard(
-          svgSrc: "assets/icon/use_mask.svg",
-          title: "Use Máscara",
-        ),
-      ],
+Container buildPreventation(BuildContext context) {
+    return Container(
+      height: 150,
+      width: double.infinity,
+      child: Stack(
+        alignment: Alignment.bottomLeft,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width * .4,
+              top: 20,
+              right: 20,
+            ),
+            height: 130,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.indigo,
+                  Colors.indigo[400],
+                ],
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Lave Bem \nas Mãos.\n",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        .copyWith(color: Colors.white),
+                  ),
+                  TextSpan(
+                    text: "Lave toda vez \nque puder.",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.7),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 44,
+              horizontal: 33,
+              ),
+            child: Icon(
+              Icons.event_available,
+              color: Colors.white.withOpacity(0.9),
+              size: 84
+              )
+          ),
+        ],
+      ),
+    );
+  }
+Container buildPreventation2(BuildContext context) {
+    return Container(
+      height: 150,
+      width: double.infinity,
+      child: Stack(
+        alignment: Alignment.bottomLeft,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(
+              // left side padding is 40% of total width
+              left: MediaQuery.of(context).size.width * .4,
+              top: 15,
+              right: 20,
+            ),
+            height: 130,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.orange[800],
+                  Colors.orange[500],
+                ],
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Não Abrace, Aperte Mãos,",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        .copyWith(color: Colors.white),
+                  ),
+                  TextSpan(
+                    text: "\nou qualquer \ncumprimento que envolva contato fisico.",
+                    style: TextStyle(
+                      fontSize: 12.6,
+                      color: Colors.white.withOpacity(0.9),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 44,
+              horizontal: 33,
+              ),
+            child: Icon(
+              Icons.event_available,
+              color: Colors.white.withOpacity(0.9),
+              size: 84
+              )
+          ),
+        ],
+      ),
     );
   }
 Container buildHelpCard(BuildContext context) {
@@ -87,8 +194,8 @@ Container buildHelpCard(BuildContext context) {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.indigo,
-                  Colors.indigo[400],
+                  Colors.teal[500],
+                  Colors.teal[300],
                 ],
               ),
               borderRadius: BorderRadius.circular(20),
@@ -97,14 +204,14 @@ Container buildHelpCard(BuildContext context) {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: "Disque 180 para \nAjuda Médica!\n",
+                    text: "Passe Álcool \nem Gel,\n",
                     style: Theme.of(context)
                         .textTheme
                         .headline6
                         .copyWith(color: Colors.white),
                   ),
                   TextSpan(
-                    text: "Se algum sintoma aparecer",
+                    text: "quando não puder \nlavar as mãos.",
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.7),
                     ),
@@ -114,13 +221,76 @@ Container buildHelpCard(BuildContext context) {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: SvgPicture.asset("assets/icon/nurse.svg"),
+            padding: const EdgeInsets.symmetric(
+              vertical: 44,
+              horizontal: 33,
+              ),
+            child: Icon(
+              Icons.event_available,
+              color: Colors.white.withOpacity(0.9),
+              size: 84
+              )
           ),
-          Positioned(
-            top: 30,
-            right: 10,
-            child: SvgPicture.asset("assets/icon/virus.svg"),
+        ],
+      ),
+    );
+  }
+
+Container buildPreventation3(BuildContext context) {
+    return Container(
+      height: 150,
+      width: double.infinity,
+      child: Stack(
+        alignment: Alignment.bottomLeft,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(
+              // left side padding is 40% of total width
+              left: MediaQuery.of(context).size.width * .4,
+              top: 15,
+              right: 20,
+            ),
+            height: 130,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.pink[800],
+                  Colors.pink[500],
+                ],
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Mantenha Distância.",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        .copyWith(color: Colors.white),
+                  ),
+                  TextSpan(
+                    text: "\nNo mínimo 2 metros de cada pessoa",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 44,
+              horizontal: 33,
+              ),
+            child: Icon(
+              Icons.event_available,
+              color: Colors.white.withOpacity(0.9),
+              size: 84
+              )
           ),
         ],
       ),
@@ -128,11 +298,11 @@ Container buildHelpCard(BuildContext context) {
   }
 
 class PreventitonCard extends StatelessWidget {
-  final String svgSrc;
+  final Icon icon;
   final String title;
   const PreventitonCard({
     Key key,
-    this.svgSrc,
+    this.icon,
     this.title,
   }) : super(key: key);
 
@@ -140,7 +310,6 @@ class PreventitonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SvgPicture.asset(svgSrc),
         Text(
           title,
           style:
